@@ -16,6 +16,14 @@ os.environ['AWS_ACCESS_KEY_ID']=config.get('AWS','KEY_ID')
 os.environ['AWS_SECRET_ACCESS_KEY']=config.get('AWS','SECRET_ACCESS_KEY')
 
 
+'''
+
+create_spark_session():
+
+Used to create a new sparksession
+
+'''
+
 def create_spark_session():
     spark = SparkSession \
         .builder \
@@ -23,6 +31,16 @@ def create_spark_session():
         .getOrCreate()
     return spark
 
+
+'''
+
+process_song_data():
+
+ETL process for the song data and create the songs and artists dimension data.
+
+Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
+
+'''
 
 def process_song_data(spark, input_data, output_data):
     # get filepath to song data file
@@ -45,6 +63,16 @@ def process_song_data(spark, input_data, output_data):
     artists_table.write.parquet(output_data+'artists')
 
 
+'''
+
+process_log_data():
+
+ETL process for the log data and create the users and time dimension data, and songplays fact data.
+
+Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
+
+'''
+    
 def process_log_data(spark, input_data, output_data):
     # get filepath to log data file
     log_data = input_data + 'log_data/*/*/'  # use: 'log_data' on local sample data
@@ -109,6 +137,14 @@ def process_log_data(spark, input_data, output_data):
     # write songplays table to parquet files partitioned by year and month
     songplays_table.write.parquet(output_data+'songplays', partitionBy=['year', 'month'])
 
+    
+'''
+
+main():
+
+The main function.
+
+''' 
 
 def main():
     spark = create_spark_session()
