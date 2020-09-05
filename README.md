@@ -90,7 +90,7 @@ Command:
 
     spark-submit --jars hadoop-aws-2.7.0.jar,aws-java-sdk-1.7.4.jar etl.py 
     
-You can download the jars ![here](https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws/2.7.0)
+You can download the jars [here](https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws/2.7.0)
 
 **Note:** Follow the local procedure if running in any cluster other than EMR cluster.
 
