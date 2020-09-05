@@ -47,7 +47,7 @@ def process_song_data(spark, input_data, output_data):
 
 def process_log_data(spark, input_data, output_data):
     # get filepath to log data file
-    log_data = input_data + 'log_data'
+    log_data = input_data + 'log_data/*/*/'  # use: 'log_data' on local sample data
 
     # read log data file
     df = spark.read.json(log_data).dropna(subset='userId') 
@@ -114,8 +114,8 @@ def main():
     spark = create_spark_session()
     
     ## 
-    input_data = "s3a://udacity-dend/" # 'data/'
-    output_data = "s3://sparkify-datalake-97/" # 'DataLake/'
+    input_data = "s3a://udacity-dend/" # use: 'data/' on local sample data
+    output_data = "s3://sparkify-datalake-7/" # user: 'DataLake/' on local sample data
     
     process_song_data(spark, input_data, output_data)    
     process_log_data(spark, input_data, output_data)
