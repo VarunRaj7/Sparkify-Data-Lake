@@ -71,7 +71,7 @@ The project template includes three files:
 
 - ETL-step-by-step-breakdown.ipynb: step-by-step breakdown of the entire ETL pipleine.
 
-- Analytic-Queries: Some analytic queries performed on the data after ETL.
+- Sparkify-Analytics: Some analytic queries performed on the data after ETL.
 
 - README.md: provides discussion on your process and decisions.
 
