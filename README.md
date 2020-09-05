@@ -104,3 +104,10 @@ Connect to the master node and run the command. In this method you need no speci
 
 #### Analytic Queries
 
+**Q1** Most Popular Songs (criteria # of songplays)
+
+![popularsongplays](/Images/Msotpopularbysongplays.png)
+
+**Q2** Most Popular Songs (criteria # of users played the song)
+
+![popularsongplaysbyuser](/Images/Msotpopular.png)
